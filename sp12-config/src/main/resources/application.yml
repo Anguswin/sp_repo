@@ -1,20 +1,30 @@
 spring:
   application:
     name: config-server
+  profiles:
+    active: native
+  
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+  
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/Anguswin/sp_repo
+#          searchPaths: sp-config
+#          #username: your-username
+#          #password: your-password
+          
   rabbitmq:
     host: 172.16.52.132
     port: 5672
     username: admin
     password: admin
   
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/Anguswin/sp_repo
-          searchPaths: sp-config
-          #username: your-username
-          #password: your-password
     
 server:
   port: 6001
